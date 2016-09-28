@@ -43,8 +43,8 @@ GIF created with [Silentcast](https://github.com/colinkeenan/silentcast).
 ## Notes
 
 Describe any challenges encountered while building the app.
-1.Want to use  LiceCap, But it won't run on Linux. Stuck when try to install rails in windows 10(1 day times) ->go back to ubuntu
-2.Don't define markdown variable
+-Want to use  LiceCap, But it won't run on Linux. Stuck when try to install rails in windows 10(1 day times) ->go back to ubuntu
+-Don't define markdown variable
 
 ## License
 
