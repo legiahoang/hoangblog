@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    increase_view
   end
 
   # GET /articles/new
@@ -81,5 +82,11 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :body)
+    end
+    
+    def increase_view
+      view = @article.count_views.to_i
+      @article.count_views = view + 1
+      @article.save
     end
 end
