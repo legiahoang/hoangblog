@@ -31,8 +31,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 gem 'acts_as_commentable'
-gem 'tether-rails'
 gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'redcarpet'
 gem 'rails_12factor', group: 'production'
