@@ -4,7 +4,7 @@
 
 Submitted by: **Le Gia Hoang**
 
-Time spent: **22** hours spent in total
+Time spent: **26** hours spent in total
 
 URL: **https://hoangblog.herokuapp.com/**
 
