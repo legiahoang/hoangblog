@@ -54,7 +54,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-<<<<<<< HEAD
  root "articles#index"
 
 end
