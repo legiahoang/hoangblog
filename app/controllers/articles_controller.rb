@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     increase_view
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   # GET /articles/new

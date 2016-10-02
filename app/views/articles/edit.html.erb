@@ -1,6 +1,19 @@
 <h1>Editing Article</h1>
 
-<%= render 'form' %>
+<%= form_for @article do |f| %>
+  <div class="form-group"> 
+  <%= f.label :title %>:
+  <%= f.text_area :title, class: "form-control" %><br />
+  </div>
 
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+  <div class="form-group"> 
+  <%= f.label :body %>:
+  <%= f.text_area :body, class: "form-control"  %><br />
+  </div>
+  <%= f.submit %>             
+  <%= link_to 'Show', @article , class: 'btn btn-primary' %> 
+  <%= link_to 'Back', articles_path ,  class: 'btn btn-primary'%>
+<% end %>
+
+
+
