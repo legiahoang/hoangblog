@@ -4,7 +4,7 @@
 
 Submitted by: **Le Gia Hoang**
 
-Time spent: **26** hours spent in total
+Time spent: **36** hours spent in total
 
 URL: **https://hoangblog.herokuapp.com/**
 
@@ -44,8 +44,10 @@ GIF created with [Silentcast](https://github.com/colinkeenan/silentcast).
 
 Describe any challenges encountered while building the app.
 - Want to use  LiceCap, But it won't run on Linux. Stuck when try to install rails in windows 10(1 day times) ->go back to ubuntu.
-
 - Don't define markdown variable.
+- delete button won't work after deploy to Heroku
+- can't use delete function in _article.html.erb
+- try to use gem to create comment but fail
 
 ## License
 
