@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
-gem 'acts_as_commentable'
+gem 'commontator', '~> 4.11.1'
 gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'redcarpet'
 gem 'rails_12factor', group: 'production'

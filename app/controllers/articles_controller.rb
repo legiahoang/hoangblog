@@ -28,7 +28,6 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.all.order('created_at DESC')
     end
-    
       @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
