@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,12 +15,6 @@ ActiveRecord::Schema.define(version: 20161001103450) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -33,17 +26,16 @@ ActiveRecord::Schema.define(version: 20161001103450) do
   create_table "comments", force: :cascade do |t|
     t.string   "title",            limit: 50, default: ""
     t.text     "comment"
-    t.integer  "commentable_id"
     t.string   "commentable_type"
+    t.integer  "commentable_id"
     t.integer  "user_id"
     t.string   "role",                        default: "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+    t.index ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
-
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
-  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "commontator_comments", force: :cascade do |t|
     t.string   "creator_type"
@@ -57,12 +49,11 @@ ActiveRecord::Schema.define(version: 20161001103450) do
     t.integer  "cached_votes_down", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["cached_votes_down"], name: "index_commontator_comments_on_cached_votes_down", using: :btree
+    t.index ["cached_votes_up"], name: "index_commontator_comments_on_cached_votes_up", using: :btree
+    t.index ["creator_id", "creator_type", "thread_id"], name: "index_commontator_comments_on_c_id_and_c_type_and_t_id", using: :btree
+    t.index ["thread_id", "created_at"], name: "index_commontator_comments_on_thread_id_and_created_at", using: :btree
   end
-
-  add_index "commontator_comments", ["cached_votes_down"], name: "index_commontator_comments_on_cached_votes_down", using: :btree
-  add_index "commontator_comments", ["cached_votes_up"], name: "index_commontator_comments_on_cached_votes_up", using: :btree
-  add_index "commontator_comments", ["creator_id", "creator_type", "thread_id"], name: "index_commontator_comments_on_c_id_and_c_type_and_t_id", using: :btree
-  add_index "commontator_comments", ["thread_id", "created_at"], name: "index_commontator_comments_on_thread_id_and_created_at", using: :btree
 
   create_table "commontator_subscriptions", force: :cascade do |t|
     t.string   "subscriber_type", null: false
@@ -70,10 +61,9 @@ ActiveRecord::Schema.define(version: 20161001103450) do
     t.integer  "thread_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["subscriber_id", "subscriber_type", "thread_id"], name: "index_commontator_subscriptions_on_s_id_and_s_type_and_t_id", unique: true, using: :btree
+    t.index ["thread_id"], name: "index_commontator_subscriptions_on_thread_id", using: :btree
   end
-
-  add_index "commontator_subscriptions", ["subscriber_id", "subscriber_type", "thread_id"], name: "index_commontator_subscriptions_on_s_id_and_s_type_and_t_id", unique: true, using: :btree
-  add_index "commontator_subscriptions", ["thread_id"], name: "index_commontator_subscriptions_on_thread_id", using: :btree
 
   create_table "commontator_threads", force: :cascade do |t|
     t.string   "commontable_type"
@@ -83,8 +73,7 @@ ActiveRecord::Schema.define(version: 20161001103450) do
     t.integer  "closer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
   end
-
-  add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
 
 end
